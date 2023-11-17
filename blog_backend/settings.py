@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-njx-(#t*#_x0sgey5$ihoofd03yzd#1--xluj&2zn%$pt5#0)0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blogapp',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,14 @@ WSGI_APPLICATION = 'blog_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'djongo',
+        'NAME': 'blogdb',
+        'CLIENT': {
+            'host': 'mongodb+srv://jaleenamaria095:jeludb179@cluster0.uv0pkmx.mongodb.net/?retryWrites=true&w=majority',
+            'username': 'jaleenamaria095',
+            'password': 'jeludb179',
+            'authMechanism': 'SCRAM-SHA-1',
+        }
     }
 }
 
